@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css">
+    <link rel="icon" type="image/png" href="https://bulma.io/favicons/favicon-16x16.png?v=201701041855" sizes="16x16">
+    <!--link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous"-->
+    <title>Crud</title>
+</head>
+<body>
+<nav class="navbar is-dark">
+<div class="container">
+    <div class=" navbar-brand ">
+        <a class="navbar-item" href="#">
+            <img src="https://bulma.io/images/bulma-logo.png"  width="112" height="28">
+        </a>
+        <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div id="navbarExampleTransparentExample" class="navbar-menu">
+        <div class="navbar-start">
+            <a class="navbar-item" href="#">
+                Home
+            </a>
+            <a class="navbar-item" href="#">
+                Bulma css
+            </a>
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link" href="#">
+                    Docs
+                </a>
+                
+                <div class="navbar-dropdown is-boxed">
+                    <a class="navbar-item" href="#">
+                        Overview
+                    </a>
+                    <a class="navbar-item" href="#">
+                        Modifiers
+                    </a>
+                    <a class="navbar-item" href="#">
+                        Columns
+                    </a>
+                    <a class="navbar-item" href="#">
+                        Layout
+                    </a>
+                    <a class="navbar-item" href="#">
+                        Form
+                    </a>
+                    <hr class="navbar-divider">
+                    <a class="navbar-item is-active" href="#">
+                        Elements
+                    </a>
+                    <a class="navbar-item is-active" href="#">
+                        Components
+                    </a>
+                </div>
+            </div>
+        </div>        
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="field is-grouped">
+                    <p class="control">
+                    <a class="bd-tw-button button" href="#">
+                        <span class="icon">
+                            <i class="icon-social-skype"></i>
+                        </span>
+                        <span>
+                            Tweet
+                        </span>
+                    </a>
+                    </p>
+                    <p class="control">
+                    <a class="button is-primary" href="#">
+                    <span class="icon">
+                        <i class="icon-social-dropbox"></i>
+                    </span>
+                    <span>
+                        Download
+                    </span>
+                    </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</nav>
+<main class="container">
+     <p class="title is-3">Formulario</p>
+    
+<form>
+    <div class="field">
+        <label class="label">Nombre: </label>
+        <div class="control has-icons-left has-icons-right">
+            <input class="input" type="text" v-model="formulario.nombre" placeholder="Text input">
+            <span class="icon is-small is-left">
+                <i class="icon-user-follow"></i>
+            </span>
+            <span class="icon is-small is-right">
+                <i class="icon-compass"></i>
+            </span>
+        </div>
+        <p class="help is-dark">Ingrese su nombre</p>
+    </div>
+        
+    <div class="field">
+        <label class="label">Usuario: </label>
+        <div class="control has-icons-left has-icons-right">
+                <input class="input is-success" v-model="formulario.user" type="text" placeholder="Text input" value="bulma">
+            <span class="icon is-small is-left">
+                <i class="icon-user"></i>
+            </span>
+            <span class="icon is-small is-right">
+                <i class="icon-check"></i>
+            </span>
+        </div>
+        <p class="help is-success">Ingrese su usuario</p>
+    </div>
+        
+    <div class="field">
+        <label class="label">Email: </label>
+        <div class="control has-icons-left has-icons-right">
+            <input class="input is-danger" type="email" v-model="formulario.email" placeholder="Email input" value="hello@">
+                <span class="icon is-small is-left">
+                    <i class="icon-envelope"></i>
+                </span>
+                <span class="icon is-small is-right">
+                    <i class="icon-lock"></i>
+                </span>
+        </div>
+        <p class="help is-danger">Ingrese su email</p>
+    </div>
+        
+    <div class="field">
+        <label class="label">Grado</label>
+        <div class="control">
+            <div class="select">
+                <select  v-model="formulario.grado">
+                    <option v-for="option in grado"  v-bind:value="option">
+                        {{option}}
+                    </option>
+                   
+                </select>
+            </div>
+        </div>
+    </div>
+        
+    <div class="field">
+        <label class="label">Mensaje</label>
+        <div class="control">
+            <textarea class="textarea" v-model="formulario.mensaje" placeholder="Textarea"></textarea>
+        </div>
+    </div>
+
+    <div class="field">
+        <div class="control">   
+            <label>Savia de nosotros: </label>         
+            <input type="radio" v-model="formulario.opcion" value="si" name="question">
+            Si
+            </label>
+            
+            <input type="radio" v-model="formulario.opcion" value="no" name="question" >
+            No
+            </label>
+        </div>
+    </div>
+    <div class="field">
+        <div class="control">
+            <label class="checkbox">
+            <input type="checkbox" v-model="formulario.acepta">
+            Usted acepta los <a href="#">los terminos y condiciones</a>
+            </label>
+        </div>
+    </div>
+        
+    <div class="field is-grouped">
+        <div class="control">
+            <button type="submit" class="button is-primary" @click="enviarmensaje()">Enviar</button>
+        </div>
+        <div class="control">
+            <button class="button is-danger" >Cancelar</button>
+        </div>
+    </div>
+</form>
+<br>
+<hr>
+<p class="title is-3">Datos :</p>
+<div class="columns is-mobile">
+    <div class="column card" v-for="user in respuesta" :key="user.id">
+        <header class="card-header">
+            <div v-if="Desabilitado">
+                <p class="card-header-title"  >
+                {{user.nombre}}
+            </div>
+            <div v-else>
+                <input type="text" v-model="user.nombre">
+            </div>
+            </p>
+            <a href="#" class="card-header-icon" aria-label="more options">
+            </a>      
+        </header>
+        <div class="card-content">
+            <div class="content">
+            <p class="menu-label">
+                datos
+            </p>
+            <ul class="menu-list">
+                <li> <i class="icon-user" aria-hidden="true"></i> User :
+                    <div v-if="Desabilitado">
+                        <a>{{user.user}} </a>
+                    </div>
+                    <div v-else>
+                        <input type="text" v-model="user.user">
+                    </div>    
+                </li>
+                <li> <i class="icon-envelope" aria-hidden="true"></i> Email :
+                    <div v-if="Desabilitado">
+                        <a>{{user.email}} </a>
+                    </div>
+                    <div v-else>
+                        <input type="text" v-model="user.email">
+                    </div>
+                </li>
+                <li> <i class="icon-grid" aria-hidden="true"></i> Grado :
+                    <div v-if="Desabilitado">
+                        <a>{{user.grado}} </a>
+                    </div>
+                    <div v-else>
+                        <input type="text" v-model="user.grado">
+                    </div>
+                </li>
+            </ul>
+            
+            <br>
+            <div v-if="Desabilitado">
+                <p @click="enviar(user.mensaje)">{{user.mensaje}}</p>
+            </div>
+            <div v-else>
+                <input type="text" v-model="user.mensaje">
+            </div>
+                <div v-if="Desabilitado">
+                    <div class="buttons has-addons" v-if="user.opcion == 'si'" >
+                            <span class="button  is-success" >Yes</span>                    
+                            <span class="button"  v-bind:disabled="Desabilitado">No</span>
+                    </div>
+                    <div class="buttons has-addons" v-else>
+                            <span class="button"  v-bind:disabled="Desabilitado"> Yes</span>
+                            <span class="button is-success" >No</span>
+                    </div>
+                </div>
+                <div v-else>
+                    <input type="radio" v-model="user.opcion" value="si" name="question">
+                    Si
+                    </label>
+                    
+                    <input type="radio" v-model="user.opcion" value="no" name="question" >
+                    No
+                    </label>
+                </div>
+            </div>
+        </div>
+        <footer class="card-footer">
+            <div v-if="Desabilitado">
+                <a v-on:click="edit()" class="card-footer-item">Edit</a>
+            </div>
+            <div v-else>
+                <a v-on:click="enviar(user.nombre,user.user,
+                user.email,user.grado,user.mensaje,user.opcion,user.key)" class="card-footer-item">Guardar</a>
+            </div>
+            <a v-on:click="elimiarMensaje(user.key)" class="card-footer-item">Delete</a>
+        </footer>
+    </div>
+</div>
+    <hr>
+    <pre>
+        {{$data}}
+    </pre>
+ </main>
+<script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="main.js"></script>
+    
+</body>
+</html>
