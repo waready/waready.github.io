@@ -199,7 +199,7 @@
                 {{user.nombre}}
             </div>
             <div v-else>
-                <input type="text" v-model="user.nombre">
+                <input type="text" class="input is-danger" v-model="user.nombre">
             </div>
             </p>
             <a href="#" class="card-header-icon" aria-label="more options">
@@ -216,7 +216,7 @@
                         <a>{{user.user}} </a>
                     </div>
                     <div v-else>
-                        <input type="text" v-model="user.user">
+                        <input type="text" class="input is-danger" v-model="user.user">
                     </div>    
                 </li>
                 <li> <i class="icon-envelope" aria-hidden="true"></i> Email :
@@ -224,7 +224,7 @@
                         <a>{{user.email}} </a>
                     </div>
                     <div v-else>
-                        <input type="text" v-model="user.email">
+                        <input type="text" class="input is-danger" v-model="user.email">
                     </div>
                 </li>
                 <li> <i class="icon-grid" aria-hidden="true"></i> Grado :
@@ -232,7 +232,7 @@
                         <a>{{user.grado}} </a>
                     </div>
                     <div v-else>
-                        <input type="text" v-model="user.grado">
+                        <input type="text" class="input is-danger" v-model="user.grado">
                     </div>
                 </li>
             </ul>
@@ -242,7 +242,7 @@
                 <p @click="enviar(user.mensaje)">{{user.mensaje}}</p>
             </div>
             <div v-else>
-                <input type="text" v-model="user.mensaje">
+                <input type="text" class="input is-danger" v-model="user.mensaje">
             </div>
                 <div v-if="Desabilitado">
                     <div class="buttons has-addons" v-if="user.opcion == 'si'" >
